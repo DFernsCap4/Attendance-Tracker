@@ -11,8 +11,11 @@ router = APIRouter(
 )
   
 # This is your test secret API key.
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+from dotenv import load_dotenv
+load_dotenv()
+config = {
+    "STRIP_SK": os.getenv("STRIPE_SK")
+}
 stripe.api_key = config['STRIPE_SK']
 
 YOUR_DOMAIN = 'http://localhost'

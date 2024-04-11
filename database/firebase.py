@@ -11,7 +11,6 @@ load_dotenv()
 config = {
     "FIREBASE_SERVICE_ACCOUNT_KEY": os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"),
     "FIREBASE_CONFIG": os.getenv("FIREBASE_CONFIG"),
-    "STRIPE_SK": os.getenv("STRIPE_SK")
 }
 
 
