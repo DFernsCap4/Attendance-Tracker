@@ -24,7 +24,7 @@ async def stripe_checkout():
             line_items=[
                 {
                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    'price': 'price_1O4KaQDeNOaTDGEGg4CeNuUE',
+                    'price': 'price_1P4KBVP5W2QTAm7ZYMZ8iwdp',
                 },
             ],
             mode='subscription',
