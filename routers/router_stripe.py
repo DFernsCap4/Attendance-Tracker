@@ -14,7 +14,7 @@ router = APIRouter(
 from dotenv import load_dotenv
 load_dotenv()
 config = {
-    "STRIP_SK": os.getenv("STRIPE_SK")
+    "STRIPE_SK": os.getenv("STRIPE_SK")
 }
 stripe.api_key = config['STRIPE_SK']
 
