@@ -1,29 +1,25 @@
-import os
 import json
 import firebase_admin
 from firebase_admin import credentials
 import pyrebase 
+import os
 
-# Get environment variables from the system environment
-firebase_service_account_key_str = os.environ.get('FIREBASE_SERVICE_ACCOUNT_KEY')
-firebase_config_str = os.environ.get('FIREBASE_CONFIG')
+from dotenv import load_dotenv
+load_dotenv()
 
-if not firebase_service_account_key_str:
-    raise ValueError("FIREBASE_SERVICE_ACCOUNT_KEY is not set or is empty.")
 
-# Make sure to check if the environment variables were actually retrieved
-if not firebase_service_account_key_str or not firebase_config_str:
-    raise ValueError("The necessary environment variables were not found.")
+config = {
+    "FIREBASE_SERVICE_ACCOUNT_KEY": os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"),
+    "FIREBASE_CONFIG": os.getenv("FIREBASE_CONFIG"),
+    "STRIPE_SK": os.getenv("STRIPE_SK")
+}
 
-# Parse the service account key and firebase config from the environment variable strings
-cred_dict = json.loads(firebase_service_account_key_str)
-firebase_config_dict = json.loads(firebase_config_str)
+
 
 # Initialize Firebase Admin with the service account information
-cred = credentials.Certificate(cred_dict)
+cred = credentials.Certificate(json.loads(config['FIREBASE_SERVICE_ACCOUNT_KEY']))
 firebase_admin.initialize_app(cred)
 
-# Initialize Pyrebase with the config information
-firebase = pyrebase.initialize_app(firebase_config_dict)
+firebase = pyrebase.initialize_app(json.loads(config['FIREBASE_CONFIG']))
 db = firebase.database()
 authSession = firebase.auth()
