@@ -8,6 +8,9 @@ import pyrebase
 firebase_service_account_key_str = os.environ.get('FIREBASE_SERVICE_ACCOUNT_KEY')
 firebase_config_str = os.environ.get('FIREBASE_CONFIG')
 
+if not firebase_service_account_key_str:
+    raise ValueError("FIREBASE_SERVICE_ACCOUNT_KEY is not set or is empty.")
+
 # Make sure to check if the environment variables were actually retrieved
 if not firebase_service_account_key_str or not firebase_config_str:
     raise ValueError("The necessary environment variables were not found.")
