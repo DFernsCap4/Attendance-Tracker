@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main", "develop" ]
 
+env:
+  FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+  FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+  STRIPE_SK: ${{ secrets.STRIPE_SK }}
 jobs:
   build:
 
@@ -13,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.10]
+        python-version: [3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -28,4 +32,3 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-

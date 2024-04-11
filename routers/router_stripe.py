@@ -11,8 +11,11 @@ router = APIRouter(
 )
   
 # This is your test secret API key.
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+from dotenv import load_dotenv
+load_dotenv()
+config = {
+    "STRIPE_SK": os.getenv("STRIPE_SK")
+}
 stripe.api_key = config['STRIPE_SK']
 
 YOUR_DOMAIN = 'http://localhost'
@@ -24,7 +27,7 @@ async def stripe_checkout():
             line_items=[
                 {
                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    'price': 'price_1O4KaQDeNOaTDGEGg4CeNuUE',
+                    'price': 'price_1P4KBVP5W2QTAm7ZYMZ8iwdp',
                 },
             ],
             mode='subscription',
