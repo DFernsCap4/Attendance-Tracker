@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "main", "develop" ]
 
+env:
+  FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+  FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+  STRIPE_SK: ${{ secrets.STRIPE_SK }}
+  
 jobs:
   build:
 
@@ -28,7 +33,3 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-      env:
-        FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-        FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
-        STRIPE_SK: ${{ secrets.STRIPE_SK }}
