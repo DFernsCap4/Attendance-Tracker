@@ -6,3 +6,4 @@ Il vise en mettre en place une API avec Authentication et Monitisation.
 - stripe: Pour gerer les payments
 # Tests
 Pour executer les test lancez la commande: "pytest"
+added ci-cd pipelines
