@@ -1,0 +1,6 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 80%  # Set your target coverage percentage here
+        threshold: 1%  # This allows for a 1% decrease, adjust as necessary
