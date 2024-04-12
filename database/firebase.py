@@ -2,10 +2,16 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 import pyrebase 
+import os
 
-from dotenv import dotenv_values
+from dotenv import load_dotenv
 
-config = dotenv_values(".env")
+load_dotenv()
+
+config={
+    "FIREBASE_SERVICE_ACCOUNT_KEY": os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"),
+    "FIREBASE_CONFIG": os.getenv("FIREBASE_CONFIG")
+}
 
 # Initialize Firebase Admin with the service account information
 cred = credentials.Certificate(json.loads(config['FIREBASE_SERVICE_ACCOUNT_KEY']))
