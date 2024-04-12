@@ -12,7 +12,6 @@ config={
     "FIREBASE_SERVICE_ACCOUNT_KEY": os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"),
     "FIREBASE_CONFIG": os.getenv("FIREBASE_CONFIG")
 }
-
 # Initialize Firebase Admin with the service account information
 cred = credentials.Certificate(json.loads(config['FIREBASE_SERVICE_ACCOUNT_KEY']))
 firebase_admin.initialize_app(cred)
