@@ -8,7 +8,7 @@ client = TestClient(app)
 def test_create_user_success():
     res = client.post("/auth/signup", json={
         "email": "test.user1@gmail.com", "password": "password"})
-    assert res.status_code == 201
+    assert res.status_code == 200
 
 # added so that we dont have residual users in the database from tests
 @pytest.fixture(scope="session", autouse=True)
